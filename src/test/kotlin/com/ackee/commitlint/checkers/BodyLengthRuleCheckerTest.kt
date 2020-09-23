@@ -9,6 +9,16 @@ import org.junit.Test
 internal class BodyLengthRuleCheckerTest {
 
     private val longBody = "Body that is way too long to be marked by our glorious checker as too long body"
+    private val multilineBodyWithNoLongLines = """
+        First line Fox Fox Fox
+        Second line Fox Fox Fox
+        Third line Fox Fox Fox
+    """.trimIndent()
+    private val multilineBodyWithLongLine = """
+        First line Fox Fox Fox
+        Second line Fox Fox Fox Second line Fox Fox Fox Second line Fox Fox Fox Second line Fox Fox Fox
+        Third line Fox Fox Fox
+    """.trimIndent()
     private val shortBody = "Body that is shortie"
 
     @Test
@@ -38,6 +48,24 @@ internal class BodyLengthRuleCheckerTest {
         Truth.assertThat(checker.warnings)
             .containsKey("sha1")
     }
+
+    @Test
+    fun `should warn about multilined body with some long lines`() {
+        val commits = listOf(
+            Commit(
+                CommitMessage(
+                    "something",
+                    null,
+                    multilineBodyWithLongLine
+                ), "sha1"
+            )
+        )
+        val checker = BodyLengthRuleChecker()
+        checker.check(commits)
+        Truth.assertThat(checker.warnings)
+            .containsKey("sha1")
+    }
+
 
     @Test
     fun `should do nothing about short body`() {
@@ -80,5 +108,22 @@ internal class BodyLengthRuleCheckerTest {
             .containsKey("sha1")
         Truth.assertThat(checker.warnings)
             .containsKey("sha2")
+    }
+
+    @Test
+    fun `should do nothing about short multi lined body`() {
+        val commits = listOf(
+            Commit(
+                CommitMessage(
+                    "something",
+                    null,
+                    multilineBodyWithNoLongLines
+                ), "sha1"
+            )
+        )
+        val checker = BodyLengthRuleChecker()
+        checker.check(commits)
+        Truth.assertThat(checker.warnings)
+            .isEmpty()
     }
 }
