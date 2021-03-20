@@ -1,7 +1,6 @@
-package com.ackee.commitlint
+package io.github.ackeecz.danger.commitlint
 
 data class Commit(val message: CommitMessage, val sha: String)
-
 
 data class CommitMessage(
     val raw: String,

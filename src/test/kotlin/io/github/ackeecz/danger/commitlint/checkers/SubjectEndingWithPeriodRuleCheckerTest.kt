@@ -1,8 +1,8 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Commit
-import com.ackee.commitlint.CommitMessage
 import com.google.common.truth.Truth
+import io.github.ackeecz.danger.commitlint.Commit
+import io.github.ackeecz.danger.commitlint.CommitMessage
 import org.junit.Test
 
 internal class SubjectEndingWithPeriodRuleCheckerTest {

@@ -1,8 +1,13 @@
-package com.ackee.commitlint
+package io.github.ackeecz.danger.commitlint
 
-import com.ackee.commitlint.checkers.checkerForRule
+import io.github.ackeecz.danger.commitlint.checkers.checkerForRule
 import systems.danger.kotlin.sdk.DangerPlugin
 
+/**
+ * danger-kotlin plugin to perform lint on a git commits. This plugin is opinionated
+ * about how a great commit message should look and it checks rules from [this](https://chris.beams.io/posts/git-commit/)
+ * list
+ */
 object CommitLintPlugin : DangerPlugin() {
 
     override val id = "commit-lint-plugin"

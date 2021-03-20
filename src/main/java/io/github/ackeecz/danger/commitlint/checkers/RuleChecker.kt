@@ -1,8 +1,9 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Commit
+import io.github.ackeecz.danger.commitlint.Commit
 
-abstract class RuleChecker {
+internal abstract class RuleChecker {
+
     val failures: MutableMap<String, String> = mutableMapOf()
     val warnings: MutableMap<String, String> = mutableMapOf()
 

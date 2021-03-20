@@ -1,8 +1,8 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Commit
+import io.github.ackeecz.danger.commitlint.Commit
 
-class SubjectCapitalizedRuleChecker : RuleChecker() {
+internal class SubjectCapitalizedRuleChecker : RuleChecker() {
 
     override fun check(commits: List<Commit>) {
         return commits.forEach {

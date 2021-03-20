@@ -1,8 +1,9 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Rule
+import io.github.ackeecz.danger.commitlint.Rule
 
-fun checkerForRule(rule: Rule): RuleChecker {
+internal fun checkerForRule(rule: Rule): RuleChecker {
+
     return when (rule) {
         Rule.SUBJECT_LENGTH -> SubjectLengthRuleChecker()
         Rule.BODY_LENGTH -> BodyLengthRuleChecker()

@@ -1,6 +1,7 @@
-package com.ackee.commitlint
+package io.github.ackeecz.danger.commitlint.checkers
 
 import com.google.common.truth.Truth
+import io.github.ackeecz.danger.commitlint.CommitMessage
 import org.junit.Test
 
 internal class CommitMessageTest {

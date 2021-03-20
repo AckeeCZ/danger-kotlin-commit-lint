@@ -1,12 +1,8 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Commit
+import io.github.ackeecz.danger.commitlint.Commit
 
-class SubjectLengthRuleChecker : RuleChecker() {
-
-    companion object {
-        const val SUBJECT_LIMIT_SIZE = 50
-    }
+internal class SubjectLengthRuleChecker : RuleChecker() {
 
     override fun check(commits: List<Commit>) {
         commits.filter { it.message.subject != null }
@@ -15,5 +11,9 @@ class SubjectLengthRuleChecker : RuleChecker() {
                     warnings[commit.sha] = "Please limit commit subject line to $SUBJECT_LIMIT_SIZE characters."
                 }
             }
+    }
+
+    companion object {
+        const val SUBJECT_LIMIT_SIZE = 50
     }
 }

@@ -1,8 +1,8 @@
-package com.ackee.commitlint.checkers
+package io.github.ackeecz.danger.commitlint.checkers
 
-import com.ackee.commitlint.Commit
+import io.github.ackeecz.danger.commitlint.Commit
 
-class SubjectMultipleWordsRuleChecker : RuleChecker() {
+internal class SubjectMultipleWordsRuleChecker : RuleChecker() {
 
     override fun check(commits: List<Commit>) {
         commits.forEach { commit ->
