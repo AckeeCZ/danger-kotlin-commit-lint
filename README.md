@@ -5,6 +5,16 @@
 This is a plugin for [danger-kotlin](https://github.com/danger/kotlin) that checks if commit messages align with
 recommendations specified eg. [here](https://chris.beams.io/posts/git-commit/)
 
+## Installation
+
+Put
+
+```kotlin
+@file:DependsOn("io.github.ackeecz:danger-kotlin-commit-lint:x.y.z")
+```
+
+to the top of your Dangerfile
+
 ## Usage
 
 There is a single method `CommitLintPlugin.check` that will perform validations on the commits.
@@ -45,6 +55,3 @@ CommitLintPlugin.check(commits, Rule.values().toList() - Rule.SUBJECT_CAPITALIZE
 
 [GitMoji](https://gitmoji.carloscuesta.me/) characters are skipped in the beginning for `SUBJECT_CAPITALIZE`
 and `SUBJECT_MULTIPLE_WORDS` rules.
-
-## Installation
-
